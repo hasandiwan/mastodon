@@ -234,6 +234,6 @@ gem 'vite_rails'
 
 gem 'base58', '~> 0.2.3'
 
-gem "gpgme", "~> 2.0"
+gem 'gpgme', '~> 2.0'
 
-gem "psych", "~> 5.4"
+gem 'psych', '~> 5.4'

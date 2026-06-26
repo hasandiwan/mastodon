@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class PublicKeyExtractor
   def initialize(user)
     @user = user
   end
-  
+
   def call
-    return nil unless @user.private_key.present?
-    
+    return nil if @user.private_key.blank?
+
     begin
       GPGME::Key.import(@user.private_key)
       GPGME.export(@user.email)

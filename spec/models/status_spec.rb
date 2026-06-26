@@ -602,5 +602,14 @@ RSpec.describe Status do
         expect(status.uri).to start_with('https://')
       end
     end
+
+    describe "signed with user's key by default, but not encrypted" do
+      it 'starts with "-----BEGIN PGP SIGNED MESSAGE-----"' do
+        status = described_class.create(account: alice, text: 'foo')
+        status.reload
+        expect(status.text).to start_with('-----BEGIN PGP SIGNED MESSAGE-----\n')
+        expect(status.text).to end_with('-----END PGP SIGNATURE-----\n')
+      end
+    end
   end
 end

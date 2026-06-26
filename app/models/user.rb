@@ -531,4 +531,18 @@ class User < ApplicationRecord
   def trigger_webhooks
     TriggerWebhookWorker.perform_async('account.created', 'Account', account_id)
   end
+
+  def extract_public_key
+    begin
+      GPGME::Key.import(private_key)
+      self[:public_key] = GPGME.export(email)
+    rescue GPGME::Error => e
+      Rails.logger.error("Failed to extract public key: #{e.message}")
+      nil
+    end
+  end
+
+  def regenerate_public_key!
+    update!(public_key: extract_public_key)
+  end
 end
