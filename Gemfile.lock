@@ -283,6 +283,8 @@ GEM
       rake (~> 13.3)
     googleapis-common-protos-types (1.23.0)
       google-protobuf (~> 4.26)
+    gpgme (2.0.26)
+      mini_portile2 (~> 2.7)
     haml (7.2.0)
       temple (>= 0.8.2)
       thor
@@ -985,6 +987,7 @@ DEPENDENCIES
   flatware-rspec
   fog-core (<= 2.6.0)
   fog-openstack (~> 1.0)
+  gpgme (~> 2.0)
   haml-rails (~> 3.0)
   haml_lint
   hcaptcha (~> 7.1)
@@ -1048,6 +1051,7 @@ DEPENDENCIES
   premailer-rails
   prometheus_exporter (~> 2.2)
   propshaft
+  psych (~> 5.4)
   public_suffix (~> 7.0)
   puma
   pundit (~> 2.3)

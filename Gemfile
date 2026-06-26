@@ -233,3 +233,7 @@ gem 'mail', '~> 2.8'
 gem 'vite_rails'
 
 gem 'base58', '~> 0.2.3'
+
+gem "gpgme", "~> 2.0"
+
+gem "psych", "~> 5.4"
